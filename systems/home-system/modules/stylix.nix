@@ -1,0 +1,35 @@
+{
+	pkgs,
+	...
+}:
+
+let
+	image = /home/kitotavrik/pictures/gruvbox/great-wave-of-kanagawa-gruvbox.png;
+	base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
+
+in {
+	stylix = {
+		enable = true;
+		
+		fonts = {
+			monospace = {
+				package = pkgs.fira-code-nerdfont;
+				name = "Fira Code Nerd Font";
+			};
+
+			sizes.terminal = 12;
+			sizes.desktop = 12;
+		};
+
+		cursor = {
+			size = 24;
+			name = "macOS-Monterey";
+			package = pkgs.apple-cursor;
+
+		};
+
+		targets.nixvim.enable = false;
+		
+		inherit image base16Scheme;
+	};
+}
