@@ -7,7 +7,7 @@
 {
 	imports = ylib.umport { 
 		paths = [ ./. ];
-		exclude = [ ./default.nix ];
+		exclude = [ ./home.nix ];
 		recursive = true;
 	};
 	

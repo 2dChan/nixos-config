@@ -35,13 +35,12 @@
 		... 
 	}@inputs:
 	let
-		system = "x86_64-linux";
-		stateVersion = "24.05";
-		ylib = nypkgs.lib.${system};
-	
-	in {
-		nixosConfigurations.cat = nixpkgs.lib.nixosSystem {
-			inherit system;
+		makeHomeSystem = name: cfg: let
+			ylib = nypkgs.lib.${cfg.system};
+			stateVersion = "24.05";
+		
+		in nixpkgs.lib.nixosSystem {
+			inherit (cfg) system;
 
 			modules = [
 				inputs.stylix.nixosModules.stylix
@@ -57,12 +56,12 @@
 							inputs.nixvim.homeManagerModules.nixvim
 						];
 						
-						users.kitotavrik = import ./home-manager/kitotavrik/default.nix;	
+						users.kitotavrik = import ./home-manager/kitotavrik/home.nix;	
 					};
 				}
 			] 
 			++ ylib.umport {
-				paths = [ ./hosts/cat ./systems/home-system ];
+				paths = [ ./systems/home-system ./hosts/${name} ];
 				recursive = true;
 			};
 			
@@ -70,6 +69,15 @@
 				inherit ylib stateVersion;
 			};
 		};
+
+		homeSystems = {
+			cat = {
+				system = "x86_64-linux";
+			};
+		};
+	
+	in {
+		nixosConfigurations = nixpkgs.lib.mapAttrs makeHomeSystem homeSystems;
 	};
 }
 
