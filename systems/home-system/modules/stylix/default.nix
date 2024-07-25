@@ -4,7 +4,7 @@
 }:
 
 let
-	image = /home/kitotavrik/pictures/gruvbox/great-wave-of-kanagawa-gruvbox.png;
+	image = ./disable.png; # Black 1px image, because option can't disable.
 	base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
 
 in {
@@ -28,8 +28,6 @@ in {
 
 		};
 
-		targets.nixvim.enable = false;
-		
 		inherit image base16Scheme;
 	};
 }

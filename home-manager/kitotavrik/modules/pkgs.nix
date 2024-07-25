@@ -5,9 +5,9 @@
 
 {
 	home.packages = with pkgs; [
+		bluetuith
 		btop
 		keepassxc
-		overskride
 		pamixer
 		p7zip
 		swww

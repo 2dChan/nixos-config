@@ -54,6 +54,7 @@
 						useUserPackages = true;
 						sharedModules = [
 							inputs.nixvim.homeManagerModules.nixvim
+							inputs.sops-nix.homeManagerModules.sops
 						];
 						
 						users.kitotavrik = import ./home-manager/kitotavrik/home.nix;	
