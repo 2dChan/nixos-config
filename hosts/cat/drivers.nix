@@ -5,6 +5,8 @@
 }:
 
 {
+	boot.loader.efi.canTouchEfiVariables = true;
+
 	services = {
 		fstrim.enable = true;
 		xserver.videoDrivers = [ "nvidia" ];

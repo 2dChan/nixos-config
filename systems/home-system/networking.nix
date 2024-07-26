@@ -6,9 +6,7 @@
 {
 	sops.secrets."wireless.env" = { };
 
-	networking = { 
-		hostName = "cat";
-		
+	networking = { 	
 		wireless = {
 			enable = true;
 			

@@ -26,6 +26,8 @@
 			url = "github:yunfachi/nypkgs";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		apple-silicon-support.url = "github:tpwrules/nixos-apple-silicon";
 	};
 	
 	outputs = {
@@ -64,7 +66,8 @@
 			++ ylib.umport {
 				paths = [ ./systems/home-system ./hosts/${name} ];
 				recursive = true;
-			};
+			} 
+			++ (cfg.externalModules or []);
 			
 			specialArgs = {
 				inherit ylib stateVersion;
@@ -74,6 +77,13 @@
 		homeSystems = {
 			cat = {
 				system = "x86_64-linux";
+			};
+
+			nika = {
+				system = "aarch64-linux";
+				externalModules = [
+					inputs.apple-silicon-support.nixosModules.apple-silicon-support
+				];
 			};
 		};
 	
