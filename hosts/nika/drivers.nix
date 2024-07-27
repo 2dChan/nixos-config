@@ -1,23 +1,24 @@
 _:
 
 {
-	boot.loader.efi.canTouchVariables = false;
+	boot.loader.efi.canTouchEfiVariables = false;
 
 	services = {
 		fstrim.enable = true;
 	};
 
 	hardware = {
-		asahi.peripheralFirmwareDirectory = ./firmware;
+		graphics.enable = true;
+		
+		asahi = {
+			withRust = true;
+			useExperimentalGPUDriver = true;
+			experimentalGPUInstallMode = "replace";
+		};
 
 		bluetooth = {
 			enable = true;
 			powerOnBoot = true;
-		};
-		
-		opengl = {
-			enable = true; # TODO: fix to new comand.
-			driSupport = true;
 		};
 	};
 }

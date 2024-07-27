@@ -2,13 +2,24 @@
 	description = "System configuration.";
 	
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		
 		home-manager = {
-			url = "github:nix-community/home-manager/release-24.05";
+			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		
+
+		asahi-firmware = {
+			url = "/home/kitotavrik/nixos-config/hosts/nika/firmware";
+			flake = false;
+		};
+
+		apple-silicon-support = {
+			url = "github:tpwrules/nixos-apple-silicon";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
 
 		stylix.url = "github:danth/stylix";
 		
@@ -18,7 +29,7 @@
 		};
 		
 		nixvim = {
-			url = "github:nix-community/nixvim/nixos-24.05";
+			url = "github:nix-community/nixvim";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
@@ -26,8 +37,6 @@
 			url = "github:yunfachi/nypkgs";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-
-		apple-silicon-support.url = "github:tpwrules/nixos-apple-silicon";
 	};
 	
 	outputs = {
@@ -47,6 +56,8 @@
 			modules = [
 				inputs.stylix.nixosModules.stylix
 				inputs.sops-nix.nixosModules.sops
+				
+				{ networking.hostName = "${name}"; }
 
 				home-manager.nixosModules.home-manager {
 					home-manager = {
@@ -83,6 +94,7 @@
 				system = "aarch64-linux";
 				externalModules = [
 					inputs.apple-silicon-support.nixosModules.apple-silicon-support
+					{ hardware.asahi.peripheralFirmwareDirectory = inputs.asahi-firmware; }
 				];
 			};
 		};

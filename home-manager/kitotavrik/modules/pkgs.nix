@@ -6,6 +6,7 @@
 {
 	home.packages = with pkgs; [
 		bluetuith
+		brightnessctl
 		btop
 		keepassxc
 		pamixer
