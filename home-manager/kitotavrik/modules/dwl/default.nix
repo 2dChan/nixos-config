@@ -8,7 +8,5 @@
 		pkgs.dwl.overrideAttrs (oldAttrs: {
 			src = ./source;
 		})
-
-	)
-	];
+	)];
 }

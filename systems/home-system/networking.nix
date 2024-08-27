@@ -18,7 +18,7 @@
 				};
 			};
 		};
-		
+
 		# Optimization boot.
 		dhcpcd.wait = "background";
 		dhcpcd.extraConfig = "noarp";

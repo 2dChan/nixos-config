@@ -8,7 +8,6 @@ static const char *const autostart[] = {
 };
 
 
-
 /* Appearance */
 #define COLOR(hex)    { ((hex >> 24) & 0xFF) / 255.0f, \
                         ((hex >> 16) & 0xFF) / 255.0f, \
@@ -52,7 +51,7 @@ static const Layout layouts[] = {
 static const MonitorRule monrules[] = {
 	/* name       mfact  nmaster scale layout       rotate/reflect                x    y */
 	{ "HDMI-A-1", 0.65f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   0,     0 },
-	{ "eDP-1",    0.5f,  1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   2560,  0 },
+	{ "eDP-1",    0.5f,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   2560,  0 },
 	{ NULL,       0.55f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,   -1 },
 };
 
@@ -60,7 +59,7 @@ static const MonitorRule monrules[] = {
 static const struct xkb_rule_names xkb_rules = {
 	.model = "pc105",
 	.layout = "us,ru",
-	.options = "grp:caps_toggle",
+	.options = "caps:none,shift:breaks_caps,grp:caps_toggle,grp_led:caps",
 };
 
 static const int repeat_rate = 25;
@@ -190,6 +189,9 @@ static const Key keys[] = {
 	{ 0,                         XF86XK_AudioMute,          spawn,     SHCMD("pamixer --toggle-mute") },
 	{ 0,                         XF86XK_AudioLowerVolume,   spawn,     SHCMD("pamixer --decrease 5") },
 	{ 0,                         XF86XK_AudioRaiseVolume,   spawn,     SHCMD("pamixer --increase 5") },
+	
+	{ 0,                         XKB_KEY_XF86MonBrightnessUp,   spawn, SHCMD("brightnessctl s +5%") },	
+	{ 0,                         XKB_KEY_XF86MonBrightnessDown, spawn, SHCMD("brightnessctl s 5%-") },
 	
 	{ MODKEY,                    XKB_KEY_0,          view,             {.ui = ~0} },
 	

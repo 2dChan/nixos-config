@@ -1,4 +1,7 @@
-_:
+{
+	pkgs,
+	...
+}:
 
 {
 	security = {
@@ -6,15 +9,8 @@ _:
 		# rtkit using for pipewire optional but recommended.
 		rtkit.enable = true; 
 
-		sudo.enable = false;
-		doas = {
+		sudo = {
 			enable = true;
-			
-			extraRules = [{
-				groups = [ "wheel" ];
-				keepEnv = true;
-				persist = true;
-			}];
 		};
 	};
 }

@@ -8,12 +8,15 @@ _:
 	};
 
 	hardware = {
-		graphics.enable = true;
+		opengl.enable = true;
 		
 		asahi = {
+			# TODO: https://github.com/tpwrules/nixos-apple-silicon/issues/59
+			#peripheralFirmwareDirectory = ./firmware;
 			withRust = true;
 			useExperimentalGPUDriver = true;
 			experimentalGPUInstallMode = "replace";
+			setupAsahiSound = true;
 		};
 
 		bluetooth = {
@@ -21,4 +24,8 @@ _:
 			powerOnBoot = true;
 		};
 	};
+	
+	services.udev.extraRules = ''
+		SUBSYSTEM=="power_supply", KERNEL=="macsmc-battery", ATTR{charge_control_end_threshold}="80"
+	'';
 }

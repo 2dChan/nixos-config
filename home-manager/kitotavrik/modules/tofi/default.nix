@@ -1,5 +1,7 @@
 {
 	pkgs,
+	lib,
+	config,
 	...
 }:
 
@@ -16,8 +18,8 @@ in {
 		enable = true;
 		settings = {
 			# Text layout.
-			promt-text = "run:";
-			promt-padding = 5;
+			prompt-text = "run:";
+			prompt-padding = 5;
 			result-spacing = 15;
 			
 			# Window theming.
@@ -40,5 +42,12 @@ in {
 			terminal = "kitty";
 			ascii-input = true;
 		};
+	};
+
+	home.activation = {
+		removeTofiCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+			tofi_cache=${config.xdg.cacheHome}/tofi-drun
+			[[ -f "$tofi_cache" ]] && rm "$tofi_cache"
+		'';
 	};
 }

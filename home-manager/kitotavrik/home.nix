@@ -17,5 +17,5 @@
 
 		inherit stateVersion;
 	};
-
 }
+

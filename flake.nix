@@ -2,22 +2,22 @@
 	description = "System configuration.";
 	
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 		
 		home-manager = {
-			url = "github:nix-community/home-manager";
+			url = "github:nix-community/home-manager/release-24.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		
-
-		asahi-firmware = {
-			url = "/home/kitotavrik/nixos-config/hosts/nika/firmware";
-			flake = false;
-		};
 
 		apple-silicon-support = {
 			url = "github:tpwrules/nixos-apple-silicon";
 			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
+		nika-firmware = {
+			url = "/home/kitotavrik/nixos-config/hosts/nika/firmware";
+			flake = false;
 		};
 
 
@@ -29,7 +29,7 @@
 		};
 		
 		nixvim = {
-			url = "github:nix-community/nixvim";
+			url = "github:nix-community/nixvim/nixos-24.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
@@ -94,7 +94,8 @@
 				system = "aarch64-linux";
 				externalModules = [
 					inputs.apple-silicon-support.nixosModules.apple-silicon-support
-					{ hardware.asahi.peripheralFirmwareDirectory = inputs.asahi-firmware; }
+					
+					{ hardware.asahi.peripheralFirmwareDirectory = inputs.nika-firmware; }
 				];
 			};
 		};

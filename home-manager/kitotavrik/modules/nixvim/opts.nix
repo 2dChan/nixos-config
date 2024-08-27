@@ -23,8 +23,13 @@ _:
 			tabstop = 4;
 			shiftwidth = 4;
 			expandtab = false;
-
+			
 			colorcolumn = "80";
+			wrap = true;
+			breakindent = true;
+			linebreak = true;
+			showbreak = "->  ";
 		};
 	};
 }
+

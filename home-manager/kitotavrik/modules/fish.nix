@@ -15,6 +15,7 @@
 			{ name = "sponge";     inherit (pkgs.fishPlugins.sponge) src;    }
 			{ name = "autopair";   inherit (pkgs.fishPlugins.autopair) src;  }
 			{ name = "tide";       inherit (pkgs.fishPlugins.tide) src;      }
+			{ name = "z";          inherit (pkgs.fishPlugins.z) src;         }
 		];
 	};
 }
