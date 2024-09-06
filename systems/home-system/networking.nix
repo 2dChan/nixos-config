@@ -6,9 +6,10 @@
 {
 	sops.secrets."wireless.env" = { };
 
-	networking = { 	
+	networking = {
 		wireless = {
 			enable = true;
+			userControlled.enable = true;
 			
 			environmentFile = config.sops.secrets."wireless.env".path;
 			networks = {
@@ -16,6 +17,18 @@
 					hidden = true;
 					psk = "@psk1@";
 				};
+
+				"@uuid5@" = {
+					priority = 1;
+					psk = "@psk5@";
+				};
+
+				"@uuid7@" = {
+					priority = 2;
+					psk = "@psk7@";
+				};
+
+				"@uuid6@".priority = 3;
 			};
 		};
 

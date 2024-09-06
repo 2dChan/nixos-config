@@ -37,7 +37,7 @@ _:
 				};
 
 				mapping = {
-					"<Enter>" = "cmp.mapping.confirm({ select = true })";
+					#"<Enter>" = "cmp.mapping.confirm({ select = true })";
 					# Navigation.
 					"<Down>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
 					"<Up>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
