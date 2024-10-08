@@ -13,6 +13,11 @@
 				set -g fish_key_bindings fish_vi_key_bindings
 			'';
 
+			shellAliases = {
+				nd = "nix develop -c fish";
+				nr = "sudo nixos-rebuild --impure";
+			};
+
 			plugins = [
 				{ name = "sponge";     inherit (pkgs.fishPlugins.sponge) src;    }
 				{ name = "autopair";   inherit (pkgs.fishPlugins.autopair) src;  }
