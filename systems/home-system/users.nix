@@ -9,7 +9,7 @@
 	
 	users = {
 		# TODO: Check: https://github.com/Mic92/sops-nix/issues/149 
-		# mutableUsers = false;
+		mutableUsers = false;
 
 		users = {
 			kitotavrik = {
