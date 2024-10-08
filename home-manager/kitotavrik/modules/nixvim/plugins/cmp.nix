@@ -2,9 +2,13 @@ _:
 
 {
 	programs.nixvim.plugins = {
-		cmp-nvim-lsp.enable = true;
+		luasnip.enable = true;
+
 		cmp-buffer.enable = true;
 		cmp-emoji.enable = true;
+		cmp_luasnip.enable = true;
+		cmp-path.enable = true;
+		cmp-nvim-lsp.enable = true;
 		
 		cmp = {
 			enable = true;
@@ -16,10 +20,17 @@ _:
 					max_view_entries = 10;
 				};
 
+				snippet.expand = ''
+					function(args)
+						require('luasnip').lsp_expand(args.body)
+					end
+				'';
+
 				sources = [
 					{ name = "nvim_lsp"; }
 					{ name = "buffer"; }
-					# { name = "emoji"; }
+					{ name = "emoji"; }
+					{ name = "luasnip"; }
 				];
 
 				window = {
@@ -37,12 +48,10 @@ _:
 				};
 
 				mapping = {
-					#"<Enter>" = "cmp.mapping.confirm({ select = true })";
+					"<Tab>" = "cmp.mapping.confirm({ select = true })";
 					# Navigation.
-					"<Down>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-					"<Up>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-					"<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-					"<CTab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+					"<C-j>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+					"<C-k>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
 				};
 				
 				formatting.format = ''
@@ -79,7 +88,6 @@ _:
 						return vim_item
 					end
 				'';
-				
 			};
 		};
 	};

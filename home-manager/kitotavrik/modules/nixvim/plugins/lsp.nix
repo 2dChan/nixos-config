@@ -7,6 +7,7 @@ _:
 			servers = {
 				clangd.enable = true;
 				pyright.enable = true;
+				texlab.enable = true;
 			};
 		};
 
