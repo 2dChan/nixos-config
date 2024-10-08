@@ -3,8 +3,9 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        "swww-daemon", NULL,
-        NULL 
+	"swww-daemon", NULL,
+	"pamixer --mute", NULL,
+	NULL 
 };
 
 
