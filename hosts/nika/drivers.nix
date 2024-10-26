@@ -21,7 +21,7 @@ _:
 
 		bluetooth = {
 			enable = true;
-			powerOnBoot = false;
+			powerOnBoot = true;
 		};
 	};
 	

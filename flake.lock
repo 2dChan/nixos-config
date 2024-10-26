@@ -385,16 +385,31 @@
         "type": "github"
       }
     },
+    "impermanence": {
+      "locked": {
+        "lastModified": 1727649413,
+        "narHash": "sha256-FA53of86DjFdeQzRDVtvgWF9o52rWK70VHGx0Y8fElQ=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "d0b38e550039a72aff896ee65b0918e975e6d48e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "type": "github"
+      }
+    },
     "nika-firmware": {
       "flake": false,
       "locked": {
-        "lastModified": 1722009863,
-        "narHash": "sha256-gvhtHY/MSeGHFSyIyv3UZDfkFWy68hTcQu1qOc26uec=",
-        "path": "/home/kitotavrik/nixos-config/hosts/nika/firmware",
+        "lastModified": 0,
+        "narHash": "sha256-C768KJhzqW2Rub5l0Jk07nsGyaGP73P+CzNPhMqiY8g=",
+        "path": "/etc/nixos/hosts/nika/firmware",
         "type": "path"
       },
       "original": {
-        "path": "/home/kitotavrik/nixos-config/hosts/nika/firmware",
+        "path": "/etc/nixos/hosts/nika/firmware",
         "type": "path"
       }
     },
@@ -519,6 +534,7 @@
       "inputs": {
         "apple-silicon-support": "apple-silicon-support",
         "home-manager": "home-manager",
+        "impermanence": "impermanence",
         "nika-firmware": "nika-firmware",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",

@@ -7,10 +7,13 @@ _:
 			servers = {
 				clangd.enable = true;
 				pyright.enable = true;
-				texlab.enable = true;
+				rust-analyzer = {
+					enable = true;
+					installRustc = false;
+					installCargo = false;
+				};
 			};
 		};
-
 
 		# TODO: Enable lsp format.
 		lsp-format.enable = false;
