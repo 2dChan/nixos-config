@@ -7,11 +7,6 @@ _:
 			servers = {
 				clangd.enable = true;
 				pyright.enable = true;
-				rust-analyzer = {
-					enable = true;
-					installRustc = false;
-					installCargo = false;
-				};
 			};
 		};
 
