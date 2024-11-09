@@ -84,7 +84,7 @@
 			++ (cfg.externalModules or []);
 			
 			specialArgs = {
-				inherit ylib stateVersion;
+				inherit ylib stateVersion inputs;
 			};
 		};
 

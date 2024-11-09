@@ -1,4 +1,7 @@
-_:
+{
+	inputs,
+	...
+}:
 
 {
 	boot.loader.efi.canTouchEfiVariables = false;
@@ -12,7 +15,7 @@ _:
 		
 		asahi = {
 			# TODO: https://github.com/tpwrules/nixos-apple-silicon/issues/59
-			#peripheralFirmwareDirectory = ./firmware;
+			peripheralFirmwareDirectory = inputs.nika-firmware;
 			withRust = true;
 			useExperimentalGPUDriver = true;
 			experimentalGPUInstallMode = "replace";
