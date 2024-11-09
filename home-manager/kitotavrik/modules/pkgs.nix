@@ -8,7 +8,6 @@
 		bluetuith
 		brightnessctl
 		btop
-		keepassxc
 		pamixer
 		p7zip
 		swww
