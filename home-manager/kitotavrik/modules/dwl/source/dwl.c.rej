@@ -1,10 +1,10 @@
 --- dwl.c
 +++ dwl.c
-@@ -199,6 +200,7 @@ struct Monitor {
- 	struct wlr_box w; /* window area, layout-relative */
- 	struct wl_list layers[4]; /* LayerSurface.link */
- 	const Layout *lt[2];
-+	Pertag *pertag;
- 	unsigned int seltags;
- 	unsigned int sellt;
- 	uint32_t tagset[2];
+@@ -259,6 +259,7 @@ static void closemon(Monitor *m);
+ static void commitlayersurfacenotify(struct wl_listener *listener, void *data);
+ static void commitnotify(struct wl_listener *listener, void *data);
+ static void commitpopup(struct wl_listener *listener, void *data);
++static int countclients(Monitor *m);
+ static void createdecoration(struct wl_listener *listener, void *data);
+ static void createidleinhibitor(struct wl_listener *listener, void *data);
+ static void createkeyboard(struct wlr_keyboard *keyboard);
