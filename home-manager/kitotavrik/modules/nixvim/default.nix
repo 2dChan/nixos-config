@@ -9,4 +9,9 @@ _:
 		viAlias = true;
 		vimAlias = true;
 	};
+
+	xdg.desktopEntries.nvim = {
+		name = "nvim";
+		noDisplay = true;
+	};
 }

@@ -7,7 +7,6 @@
 	home.packages = with pkgs; [
 		bluetuith
 		brightnessctl
-		btop
 		pamixer
 		p7zip
 		swww
