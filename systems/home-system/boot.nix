@@ -11,7 +11,6 @@
 		
 		systemd-boot = {
 			enable = true;
-			consoleMode = lib.mkForce "auto";
 			configurationLimit = 10;
 		};
 	};
