@@ -1,4 +1,7 @@
-_:
+{
+	lib,
+	...
+}:
 
 {
 	# TODO: setup boot setings.
@@ -8,6 +11,7 @@ _:
 		
 		systemd-boot = {
 			enable = true;
+			consoleMode = lib.mkForce "auto";
 			configurationLimit = 10;
 		};
 	};
