@@ -7,8 +7,6 @@
 	sops.secrets."wireless.env" = { };
 
 	networking = {
-		nameservers = [ "127.0.0.1" ]; # Blocky dns.
-
 		wireless = {
 			enable = true;
 			userControlled.enable = true;

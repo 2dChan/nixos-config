@@ -192,6 +192,8 @@ static const Key keys[] = {
 	
 	{ 0,                         XKB_KEY_XF86MonBrightnessUp,   spawn, SHCMD("brightnessctl s +5%") },	
 	{ 0,                         XKB_KEY_XF86MonBrightnessDown, spawn, SHCMD("brightnessctl s 5%-") },
+	{ MODKEY,                    XKB_KEY_XF86MonBrightnessUp,   spawn, SHCMD("brightnessctl --device=kbd_backlight s +1%") },	
+	{ MODKEY,                    XKB_KEY_XF86MonBrightnessDown, spawn, SHCMD("brightnessctl --device=kbd_backlight s 1%-") },
 	
 	{ MODKEY,                    XKB_KEY_0,          view,             {.ui = ~0} },
 	
