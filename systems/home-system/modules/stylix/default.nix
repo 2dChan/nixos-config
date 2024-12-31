@@ -1,5 +1,6 @@
 {
 	pkgs,
+	pkgs24_05,
 	...
 }:
 
@@ -24,7 +25,7 @@ in {
 		cursor = {
 			size = 24;
 			name = "macOS-Monterey";
-			package = pkgs.apple-cursor;
+			package = pkgs24_05.apple-cursor;
 
 		};
 

@@ -2,10 +2,12 @@
 	description = "System configuration.";
 	
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+
+		nixpkgs24_05.url = "github:nixos/nixpkgs/nixos-24.05";
 		
 		home-manager = {
-			url = "github:nix-community/home-manager/release-24.05";
+			url = "github:nix-community/home-manager/release-24.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		
@@ -16,13 +18,13 @@
 		};
 
 		nika-firmware = {
-			url = "/home/kitotavrik/nixos-config/hosts/nika/firmware";
+			url = "/home/kitotavrik/documents/programming/nixos-config/hosts/nika/firmware";
 			flake = false;
 		};
 
 
 		stylix = {
-			url = "github:danth/stylix/release-24.05";
+			url = "github:danth/stylix/release-24.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		
@@ -32,7 +34,7 @@
 		};
 		
 		nixvim = {
-			url = "github:nix-community/nixvim/nixos-24.05";
+			url = "github:nix-community/nixvim/nixos-24.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
@@ -52,6 +54,7 @@
 		makeHomeSystem = name: cfg: let
 			ylib = nypkgs.lib.${cfg.system};
 			stateVersion = "24.05";
+
 		
 		in nixpkgs.lib.nixosSystem {
 			inherit (cfg) system;
@@ -64,7 +67,13 @@
 
 				home-manager.nixosModules.home-manager {
 					home-manager = {
-						extraSpecialArgs = { inherit ylib stateVersion; };
+						extraSpecialArgs = { 
+							pkgs24_05 = import inputs.nixpkgs24_05 {
+        			  inherit (cfg) system;
+        			};
+
+							inherit ylib stateVersion; 
+						};
 						
 						useGlobalPkgs = true;
 						useUserPackages = true;
@@ -84,6 +93,10 @@
 			++ (cfg.externalModules or []);
 			
 			specialArgs = {
+				pkgs24_05 = import inputs.nixpkgs24_05 {
+					inherit (cfg) system;
+				};
+
 				inherit ylib stateVersion inputs;
 			};
 		};

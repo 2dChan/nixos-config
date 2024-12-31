@@ -5,13 +5,16 @@
 
 {
 	boot.loader.efi.canTouchEfiVariables = false;
+	#	boot.kernelParams = [
+	#		"apple_dcp.show_notch=1"
+	#	];
 
 	services = {
 		fstrim.enable = true;
 	};
 
 	hardware = {
-		opengl.enable = true;
+		graphics.enable = true;
 		
 		asahi = {
 			# TODO: https://github.com/tpwrules/nixos-apple-silicon/issues/59

@@ -146,7 +146,7 @@ static const Modekey modekeys[] = {
 	{ LAYOUTS, { MODKEY,    XKB_KEY_i,         incnmaster,     {.i = +1} } },
 	{ LAYOUTS, { MODKEY,    XKB_KEY_d,         incnmaster,     {.i = -1} } },
 	{ LAYOUTS, { MODKEY,    XKB_KEY_Tab,       view,           {0} } },
-	{ LAYOUTS, { MODKEY,    XKB_KEY_g,         togglegaps,     {0} } },
+	// { LAYOUTS, { MODKEY,    XKB_KEY_g,         togglegaps,     {0} } },
 	{ LAYOUTS, { 0,         XKB_KEY_Escape,    entermode,      {.i = NORMAL} } },
 };
 
