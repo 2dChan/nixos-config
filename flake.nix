@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
-    nixpkgs24_05.url = "github:nixos/nixpkgs/nixos-24.05";
-
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -83,10 +81,6 @@
               {
                 home-manager = {
                   extraSpecialArgs = {
-                    pkgs24_05 = import inputs.nixpkgs24_05 {
-                      inherit (cfg) system;
-                    };
-
                     inherit ylib stateVersion;
                   };
 
@@ -111,10 +105,6 @@
             ++ (cfg.externalModules or [ ]);
 
           specialArgs = {
-            pkgs24_05 = import inputs.nixpkgs24_05 {
-              inherit (cfg) system;
-            };
-
             inherit ylib stateVersion inputs;
           };
         };

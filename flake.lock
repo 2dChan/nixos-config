@@ -442,22 +442,6 @@
         "type": "github"
       }
     },
-    "nixpkgs24_05": {
-      "locked": {
-        "lastModified": 1735563628,
-        "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixvim": {
       "inputs": {
         "devshell": "devshell",
@@ -536,7 +520,6 @@
         "home-manager": "home-manager",
         "nika-firmware": "nika-firmware",
         "nixpkgs": "nixpkgs",
-        "nixpkgs24_05": "nixpkgs24_05",
         "nixvim": "nixvim",
         "nypkgs": "nypkgs",
         "sops-nix": "sops-nix",
