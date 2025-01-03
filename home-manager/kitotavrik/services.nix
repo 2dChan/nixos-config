@@ -1,10 +1,10 @@
 _:
 
 {
-	services = {
-		dunst.enable = true;
+  services = {
+    dunst.enable = true;
 
-		# Support bluetooth media buttons.
-		mpris-proxy.enable = true;
-	};
+    # Support bluetooth media buttons.
+    mpris-proxy.enable = true;
+  };
 }

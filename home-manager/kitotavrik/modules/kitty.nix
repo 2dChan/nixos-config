@@ -1,10 +1,10 @@
 _:
 
 {
-	programs.kitty.enable = true;
+  programs.kitty.enable = true;
 
-	xdg.desktopEntries.kitty = {
-		name = "kitty";
-		noDisplay = true;
-	};
+  xdg.desktopEntries.kitty = {
+    name = "kitty";
+    noDisplay = true;
+  };
 }

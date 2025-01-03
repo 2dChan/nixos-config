@@ -1,14 +1,11 @@
-{
-	pkgs,
-	...
-}:
+_:
 
 {
-	security = {
-		polkit.enable = true;
+  security = {
+    polkit.enable = true;
 
-		sudo = {
-			enable = true;
-		};
-	};
+    sudo = {
+      enable = true;
+    };
+  };
 }

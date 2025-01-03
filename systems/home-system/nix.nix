@@ -1,26 +1,31 @@
 {
-	lib,
-	stateVersion,
-	...
+  lib,
+  stateVersion,
+  ...
 }:
 
 {
-	# TODO: Split to other hosts.
-	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-		"nvidia-x11"
-	];
+  # TODO: Split to other hosts.
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-x11"
+    ];
 
-	nix = {
-		settings.experimental-features = [ "nix-command" "flakes" ];
-		optimise.automatic = true;
-		gc = {
-			automatic = true;
-			dates = "weekly";
-			options = "--delete-older-than 1w";
-		};
-	};
+  nix = {
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    optimise.automatic = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
+    };
+  };
 
-	documentation.nixos.enable = false;	
+  documentation.nixos.enable = false;
 
-	system.stateVersion = stateVersion;
+  system.stateVersion = stateVersion;
 }

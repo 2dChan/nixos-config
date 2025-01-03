@@ -1,26 +1,25 @@
-{ 
-	pkgs,
-	config,
-	...
+{
+  pkgs,
+  config,
+  ...
 }:
 
 {
-	sops.secrets."users/kitotavrik/password".neededForUsers = true;
-	
-	users = {
-		# TODO: Check: https://github.com/Mic92/sops-nix/issues/149 
-		mutableUsers = false;
+  sops.secrets."users/kitotavrik/password".neededForUsers = true;
 
-		users = {
-			kitotavrik = {
-				extraGroups = [ "wheel" ];
-				isNormalUser = true;
-				shell = pkgs.fish;
-				hashedPasswordFile = config.sops.secrets."users/kitotavrik/password".path;
+  users = {
+    # TODO: Check: https://github.com/Mic92/sops-nix/issues/149
+    mutableUsers = false;
 
-				home = "/home/kitotavrik";
-			};	
-		};
-	};
+    users = {
+      kitotavrik = {
+        extraGroups = [ "wheel" ];
+        isNormalUser = true;
+        shell = pkgs.fish;
+        hashedPasswordFile = config.sops.secrets."users/kitotavrik/password".path;
+
+        home = "/home/kitotavrik";
+      };
+    };
+  };
 }
-

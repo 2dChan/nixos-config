@@ -1,21 +1,20 @@
 {
-	stateVersion,
-	ylib,
-	...
+  stateVersion,
+  ylib,
+  ...
 }:
 
 {
-	imports = ylib.umport { 
-		paths = [ ./. ];
-		exclude = [ ./home.nix ];
-		recursive = true;
-	};
-	
-	home = {
-		username = "kitotavrik";
-		homeDirectory = "/home/kitotavrik";
+  imports = ylib.umport {
+    paths = [ ./. ];
+    exclude = [ ./home.nix ];
+    recursive = true;
+  };
 
-		inherit stateVersion;
-	};
+  home = {
+    username = "kitotavrik";
+    homeDirectory = "/home/kitotavrik";
+
+    inherit stateVersion;
+  };
 }
-

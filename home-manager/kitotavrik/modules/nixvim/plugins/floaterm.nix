@@ -1,14 +1,14 @@
 _:
 
 {
-	programs.nixvim.plugins.floaterm = {
-		enable = true;
-		
-		width = 0.7;
-		height = 0.7;
-		
-		title = "Terminal";
+  programs.nixvim.plugins.floaterm = {
+    enable = true;
 
-		keymaps.toggle = "<leader>t";
-	};
+    width = 0.7;
+    height = 0.7;
+
+    title = "Terminal";
+
+    keymaps.toggle = "<leader>t";
+  };
 }

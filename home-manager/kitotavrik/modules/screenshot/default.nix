@@ -1,16 +1,16 @@
 {
-	pkgs,
-	...
+  pkgs,
+  ...
 }:
 let
-	screenshot = pkgs.writeScriptBin "screenshot"
-		(builtins.readFile ./screenshot.sh);
+  screenshot = pkgs.writeScriptBin "screenshot" (builtins.readFile ./screenshot.sh);
 
-in {
-	home.packages = with pkgs; [
-		slurp
-		grim
+in
+{
+  home.packages = with pkgs; [
+    slurp
+    grim
 
-		screenshot
-	];
+    screenshot
+  ];
 }

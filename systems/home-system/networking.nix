@@ -1,29 +1,29 @@
 {
-	config,
-	...
+  config,
+  ...
 }:
 
 {
-	sops.secrets."wireless.env" = { };
+  sops.secrets."wireless.env" = { };
 
-	networking = {
-		wireless = {
-			enable = true;
-			userControlled.enable = true;
-			
-			secretsFile = config.sops.secrets."wireless.env".path;
-			networks = {
-				"Dark_Moon5G" = {
-					hidden = true;
-					pskRaw = "ext:Dark_Moon5G";
-				};
-			};	
-		};
+  networking = {
+    wireless = {
+      enable = true;
+      userControlled.enable = true;
 
-		# Optimization boot.
-		dhcpcd.wait = "background";
-		dhcpcd.extraConfig = "noarp";
-	};
+      secretsFile = config.sops.secrets."wireless.env".path;
+      networks = {
+        "Dark_Moon5G" = {
+          hidden = true;
+          pskRaw = "ext:Dark_Moon5G";
+        };
+      };
+    };
+
+    # Optimization boot.
+    dhcpcd.wait = "background";
+    dhcpcd.extraConfig = "noarp";
+  };
 }
 
 # TODO: Refactor.

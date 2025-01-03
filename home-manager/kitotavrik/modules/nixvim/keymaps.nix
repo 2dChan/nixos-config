@@ -1,9 +1,9 @@
 _:
 
 {
-	programs.nixvim = {
-		globals.mapleader = " ";
-		
-		keymaps = [ ];
-	};
+  programs.nixvim = {
+    globals.mapleader = " ";
+
+    keymaps = [ ];
+  };
 }

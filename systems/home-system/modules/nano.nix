@@ -1,5 +1,5 @@
 _:
 
 {
-	programs.nano.enable = false;
+  programs.nano.enable = false;
 }

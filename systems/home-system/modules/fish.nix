@@ -1,5 +1,5 @@
 _:
 
 {
-	programs.fish.enable = true;
+  programs.fish.enable = true;
 }
