@@ -20,10 +20,10 @@ static const int smartgaps                 = 1;  /* 1 means no outer gap when th
 static int gaps                            = 0;  /* 1 means gaps between windows are added */
 static const unsigned int gappx            = 15; /* gap pixel between windows */
 static const unsigned int borderpx         = 3;  /* border pixel of windows */
-static const float rootcolor[]             = COLOR(0x292828ff);
-static const float bordercolor[]           = COLOR(0x665c54ff);
-static const float focuscolor[]            = COLOR(0xbdae93ff);
-static const float urgentcolor[]           = COLOR(0xea6962ff);
+static const float rootcolor[]             = COLOR(0x@root_color@ff);
+static const float bordercolor[]           = COLOR(0x@border_color@ff);
+static const float focuscolor[]            = COLOR(0x@focus_color@ff);
+static const float urgentcolor[]           = COLOR(0x@urgent_color@ff);
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You can also use glsl colors */
 
@@ -33,8 +33,8 @@ static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You ca
 #define TAGCOUNT (9)
 
 static const Rule rules[] = {
-	/* app_id             title       tags mask     isfloating   monitor */
-	"lol"
+	/* app_id                title       tags mask     isfloating   monitor */
+	{ "keepassxc_EXAMPLE",   NULL,       1 << 5,       0,           -1 }, 
 };
 
 /* layout(s) */
@@ -49,10 +49,10 @@ static const Layout layouts[] = {
 
 /* monitors */
 static const MonitorRule monrules[] = {
-	/* name       mfact  nmaster scale layout       rotate/reflect                x    y */
-	{ "HDMI-A-1", 0.65f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   0,     0 },
-	{ "eDP-1",    0.5f,  1,   1.74,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   2560,  0 },
-	{ NULL,       0.55f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,   -1 },
+	/* name       mfact  nmaster scale       layout       rotate/reflect                x    y */
+	{ "HDMI-A-1", 0.65f, 1,            1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   0,     0 },
+	{ "eDP-1",    0.5f,  1, @edp1_scale@,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   2560,  0 },
+	{ NULL,       0.55f, 1,            1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,   -1 },
 };
 
 /* keyboard */

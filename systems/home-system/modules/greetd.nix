@@ -6,9 +6,7 @@ _:
     settings = rec {
       initial_session = {
         command = "
-					while true; do
-					    dwl 2> ~/.cache/dwl.txt
-					done
+					dwl-start
 				";
         user = "kitotavrik";
       };
