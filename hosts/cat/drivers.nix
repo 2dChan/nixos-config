@@ -7,6 +7,11 @@
 {
 	boot.loader.efi.canTouchEfiVariables = true;
 
+	secrets = {
+		# rtkit using for pipewire optional but recommended.
+		rtkit.enable = true; 
+	};
+
 	services = {
 		fstrim.enable = true;
 		xserver.videoDrivers = [ "nvidia" ];

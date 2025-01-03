@@ -1,10 +1,12 @@
 _:
 
 {
+
 	programs.nixvim.plugins = {
 		treesitter = {
 			enable = true;
-			indent = true;
+			settings.indent.enable = true;
 		};
+		web-devicons.enable = true;
 	};
 }
