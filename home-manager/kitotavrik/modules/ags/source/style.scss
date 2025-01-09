@@ -1,0 +1,41 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$fg-color: #{"@theme_fg_color"};
+$bg-color: black;
+$bg1-color: #181818;
+$green: #a9b665;
+
+window.Bar {
+  font-weight: bold;
+
+  background: black;
+  color: $fg-color;
+
+  centerbox {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .vLine{
+    min-height: 21px;
+    min-width: 4px;
+
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    border-radius: 5px;
+
+    background-color: $bg1-color;
+  }
+
+
+  circularprogress {
+    min-width: 23px;
+    
+    font-size: 7px;
+    
+    color: #a9b665;
+    background-color: $bg1-color;
+  }
+}

@@ -19,6 +19,11 @@
       flake = false;
     };
 
+    ags = {
+			url = "github:aylur/ags";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
     stylix = {
       url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -81,12 +86,13 @@
               {
                 home-manager = {
                   extraSpecialArgs = {
-                    inherit ylib stateVersion;
+                    inherit inputs ylib stateVersion;
                   };
 
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   sharedModules = [
+										inputs.ags.homeManagerModules.default
                     inputs.nixvim.homeManagerModules.nixvim
                     inputs.sops-nix.homeManagerModules.sops
                   ];

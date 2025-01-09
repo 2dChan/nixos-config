@@ -32,7 +32,7 @@ let
     			while $do ||  [ -f /tmp/restart_dwl ]; do
     			    do=false
     			    rm -rf /tmp/restart_dwl > /dev/null 2>&1
-    			    dwl -s "swww-daemon" 2> ~/.cache/dwl.txt 
+    			    dwl -s "swww-daemon & ags run" 2> ~/.cache/dwl.txt 
     			done
     		'';
 

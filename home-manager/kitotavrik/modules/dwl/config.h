@@ -164,6 +164,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_d,          spawn,            {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_t,          spawn,            {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_s,          spawn,            {.v = screenshot} },
+	{ MODKEY,					 XKB_KEY_w,			 spawn,            SHCMD("/bin/sh /home/kitotavrik/documents/work.sh")},
 
 	{ MODKEY,                    XKB_KEY_space,      togglefloating,   {0} },
 	{ MODKEY,                    XKB_KEY_f,          togglefullscreen, {0} },
