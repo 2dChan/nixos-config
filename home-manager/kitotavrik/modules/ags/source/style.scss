@@ -3,39 +3,52 @@ $fg-color: #{"@theme_fg_color"};
 $bg-color: black;
 $bg1-color: #181818;
 $green: #a9b665;
+$blue: #7daea3;
 
 window.Bar {
-  font-weight: bold;
+	font-weight: bold;
 
-  background: black;
-  color: $fg-color;
+	background: black;
+	color: $fg-color;
 
-  centerbox {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+	centerbox {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
 
-  .vLine{
-    min-height: 21px;
-    min-width: 4px;
+	.vLine {
+		min-height: 21px;
+		// min-width: 4px;
 
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 10px;
-    margin-right: 10px;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		margin-left: 5px;
+		margin-right: 5px;
 
-    border-radius: 5px;
+		border-radius: 5px;
 
-    background-color: $bg1-color;
-  }
+		background-color: $bg1-color;
+	}
 
+	.bluetoothDot {
+		min-height: 5px;
+		min-width: 5px;
 
-  circularprogress {
-    min-width: 23px;
-    
-    font-size: 7px;
-    
-    color: #a9b665;
-    background-color: $bg1-color;
-  }
+		margin-left: 1px;
+		margin-top: 9px;
+		margin-bottom: 23px;
+
+		border-radius: 10px;
+
+		background-color: $blue;
+	}
+
+	circularprogress {
+		min-width: 23px;
+
+		font-size: 7px;
+
+		color: #a9b665;
+		background-color: $bg1-color;
+	}
 }

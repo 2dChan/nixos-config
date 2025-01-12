@@ -5,11 +5,11 @@
 
 {
   boot = {
-		loader.efi.canTouchEfiVariables = false;
-		kernelParams = [
-			"apple_dcp.show_notch=1"
-		];
-	};
+    loader.efi.canTouchEfiVariables = false;
+    kernelParams = [
+      "apple_dcp.show_notch=1"
+    ];
+  };
 
   services = {
     fstrim.enable = true;

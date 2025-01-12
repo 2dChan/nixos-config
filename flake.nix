@@ -20,9 +20,9 @@
     };
 
     ags = {
-			url = "github:aylur/ags";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+      url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     stylix = {
       url = "github:danth/stylix/release-24.11";
@@ -92,7 +92,7 @@
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   sharedModules = [
-										inputs.ags.homeManagerModules.default
+                    inputs.ags.homeManagerModules.default
                     inputs.nixvim.homeManagerModules.nixvim
                     inputs.sops-nix.homeManagerModules.sops
                   ];
