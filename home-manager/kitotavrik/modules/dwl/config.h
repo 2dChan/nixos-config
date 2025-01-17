@@ -33,8 +33,9 @@ static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You ca
 #define TAGCOUNT (9)
 
 static const Rule rules[] = {
-	/* app_id                title       tags mask     isfloating   monitor */
-	{ "keepassxc_EXAMPLE",   NULL,       1 << 5,       0,           -1 }, 
+	/* app_id          title       tags mask  isfloating   monitor */
+	{ "keepassxc",     NULL,       1 << 4,    0,           -1 },
+	// { "Kotatogram",    NULL , 1 << 3,    0,           -1 },
 };
 
 /* layout(s) */
