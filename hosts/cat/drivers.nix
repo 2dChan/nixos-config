@@ -7,7 +7,7 @@
 {
   boot.loader.efi.canTouchEfiVariables = true;
 
-  secrets = {
+  security = {
     # rtkit using for pipewire optional but recommended.
     rtkit.enable = true;
   };
@@ -48,9 +48,8 @@
       powerOnBoot = true;
     };
 
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
 
       extraPackages = with pkgs; [
         intel-media-sdk
