@@ -5,25 +5,22 @@
   ...
 }:
 let
+  patches = pkgs.fetchFromGitea {
+		domain = "codeberg.org";
+    owner = "dwl";
+    repo = "dwl-patches";
+    rev = "main";
+    sha256 = "sha256-RNbbRTnv5IHpc7uz+FrUOsOZVdr7Dl9751PELkQIelI=";
+  };
+
   dwl-custom = pkgs.dwl.overrideAttrs (_oldAttrs: {
     # src = ./source;
     patches = [
-      (pkgs.fetchpatch2 {
-        url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/simpleborders/simpleborders-v0.7.patch";
-        hash = "sha256-uHwZkrwm/PjngMUng52FBWU7RrMjwM0o1jqAwZyrjBM=";
-      })
-      (pkgs.fetchpatch2 {
-        url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/modes/modes.patch";
-        hash = "sha256-EWJVJ5kZ22kK1RJtYdVbvVUoTPa24YS4L29tj1WxDBc=";
-      })
-      (pkgs.fetchpatch2 {
-        url = "https://codeberg.org/dwl/dwl-patches/raw/commit/65ea99519bbf7a52f48932aea7385f81f8b30867/patches/pertag/pertag.patch";
-        hash = "sha256-3pmvwSiBvPu/mnaineHJOUcmgtKr9xB4yWYvVSlXtrs=";
-      })
-      (pkgs.fetchpatch2 {
-        url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/restore-monitor/restore-monitor.patch";
-        hash = "sha256-ORtLm+y01wzrs/Hw9qZ08iBfcVQH/G6ZdsX5fJ4DQEc=";
-      })
+			"${patches}/patches/simpleborders/simpleborders-v0.7.patch"
+			"${patches}/patches/modes/modes.patch"
+			"${patches}/patches/pertag/pertag.patch"
+			"${patches}/patches/restore-monitor/restore-monitor.patch"
+			"${patches}/patches/naturalscrolltrackpad/naturalscrolltrackpad.patch"
     ];
   });
 

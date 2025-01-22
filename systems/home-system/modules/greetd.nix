@@ -6,7 +6,9 @@ _:
     settings = rec {
       initial_session = {
         command = "
-					dwl-start
+					while true; do
+						dwl-start
+					done
 				";
         user = "kitotavrik";
       };
