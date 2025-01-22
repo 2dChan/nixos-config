@@ -6,7 +6,7 @@
 }:
 let
   patches = pkgs.fetchFromGitea {
-		domain = "codeberg.org";
+    domain = "codeberg.org";
     owner = "dwl";
     repo = "dwl-patches";
     rev = "main";
@@ -14,13 +14,14 @@ let
   };
 
   dwl-custom = pkgs.dwl.overrideAttrs (_oldAttrs: {
-    # src = ./source;
+    src = ./source;
     patches = [
-			"${patches}/patches/simpleborders/simpleborders-v0.7.patch"
-			"${patches}/patches/modes/modes.patch"
-			"${patches}/patches/pertag/pertag.patch"
-			"${patches}/patches/restore-monitor/restore-monitor.patch"
-			"${patches}/patches/naturalscrolltrackpad/naturalscrolltrackpad.patch"
+      "${patches}/patches/simpleborders/simpleborders-v0.7.patch"
+      "${patches}/patches/modes/modes.patch"
+      "${patches}/patches/pertag/pertag.patch"
+      "${patches}/patches/restore-monitor/restore-monitor.patch"
+      "${patches}/patches/naturalscrolltrackpad/naturalscrolltrackpad.patch"
+      "${patches}/patches/switchtotag/switchtotag.patch"
     ];
   });
 
