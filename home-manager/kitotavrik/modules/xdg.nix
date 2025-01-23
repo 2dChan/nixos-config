@@ -11,9 +11,9 @@ _:
       download = "$HOME/downloads";
       documents = "$HOME/documents";
       templates = "$HOME/templates";
-      music = "$HOME/media/music";
-      videos = "$HOME/media/videos";
-      pictures = "$HOME/media/pictures";
+      music = "$HOME/music";
+      videos = "$HOME/videos";
+      pictures = "$HOME/pictures";
       publicShare = "$HOME/share/public";
     };
   };
