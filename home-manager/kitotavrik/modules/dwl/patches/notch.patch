@@ -1,0 +1,25 @@
+diff --git a/dwl.c b/dwl.c
+index def2562..0ea03c4 100644
+--- a/dwl.c
++++ b/dwl.c
+@@ -2323,6 +2323,8 @@ setfloating(Client *c, int floating)
+ void
+ setfullscreen(Client *c, int fullscreen)
+ {
++	struct wlr_box geo = c->mon->m;
++
+ 	c->isfullscreen = fullscreen;
+ 	if (!c->mon || !client_surface(c)->mapped)
+ 		return;
+@@ -2332,8 +2334,10 @@ setfullscreen(Client *c, int fullscreen)
+ 			? LyrFS : c->isfloating ? LyrFloat : LyrTile]);
+ 
+ 	if (fullscreen) {
++		geo.y = 37;
++		geo.height -= geo.y;
+ 		c->prev = c->geom;
+-		resize(c, c->mon->m, 0);
++		resize(c, geo, 0);
+ 	} else {
+ 		/* restore previous size instead of arrange for floating windows since
+ 		 * client positions are set by the user and cannot be recalculated */

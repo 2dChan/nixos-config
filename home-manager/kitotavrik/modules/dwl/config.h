@@ -25,7 +25,7 @@ static const float bordercolor[]           = COLOR(0x@border_color@ff);
 static const float focuscolor[]            = COLOR(0x@focus_color@ff);
 static const float urgentcolor[]           = COLOR(0x@urgent_color@ff);
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */
-static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You can also use glsl colors */
+static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You can also use glsl colors */
 
 
 

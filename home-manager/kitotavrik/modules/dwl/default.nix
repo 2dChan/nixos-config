@@ -22,6 +22,7 @@ let
       "${patches}/patches/restore-monitor/restore-monitor.patch"
       "${patches}/patches/naturalscrolltrackpad/naturalscrolltrackpad.patch"
       "${patches}/patches/switchtotag/switchtotag.patch"
+			./patches/notch.patch
     ];
   });
 
