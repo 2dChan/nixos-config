@@ -63,7 +63,10 @@ export default function Bar(monitor: Gdk.Monitor) {
 			exclusivity={Astal.Exclusivity.EXCLUSIVE}
 			anchor={TOP | LEFT | RIGHT}
 		>
-			<centerbox>
+			<box className="barContainer">
+				<box hexpand halign={Gtk.Align.START}>
+					<label label={"             "}/>
+				</box>
 				<box hexpand halign={Gtk.Align.END}>
 					<VolumeLevel />
 					<BluetoothConection />
@@ -72,7 +75,7 @@ export default function Bar(monitor: Gdk.Monitor) {
 					<box className="vLine" />
 					<Time />
 				</box>
-			</centerbox>
+			</box>
 		</window>
 	);
 }
