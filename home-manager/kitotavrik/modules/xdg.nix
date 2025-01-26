@@ -7,7 +7,7 @@ _:
     userDirs = {
       enable = true;
 
-      desktop = "$HOME/desktop";
+      # desktop = "$HOME/desktop";
       download = "$HOME/downloads";
       documents = "$HOME/documents";
       templates = "$HOME/templates";
