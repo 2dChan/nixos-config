@@ -10,7 +10,7 @@ let
     owner = "dwl";
     repo = "dwl-patches";
     rev = "main";
-    sha256 = "sha256-RNbbRTnv5IHpc7uz+FrUOsOZVdr7Dl9751PELkQIelI=";
+    sha256 = "sha256-Pl64ZZsnWtv1c+m83euJ9ukBeGxIvKGQHv5qPDp3qnc=";
   };
 
   dwl-custom = pkgs.dwl.overrideAttrs (_oldAttrs: {

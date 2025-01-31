@@ -56,6 +56,9 @@ function Time({ format = " %I:%M %p" }) {
 export default function Bar(monitor: Gdk.Monitor) {
 	const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
+	if (monitor.model == "Mi Monitor")
+		return;
+
 	return (
 		<window
 			className="Bar"
