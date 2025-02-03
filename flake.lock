@@ -214,6 +214,24 @@
     },
     "flake-parts": {
       "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1738453229,
+        "narHash": "sha256-7H9XgNiGLKN1G1CgRh0vUL4AheZSYzPm+zmZ7vxbJdo=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "32ea77a06711b758da0ad9bd6a844c5740a87abd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
         "nixpkgs-lib": [
           "nixvim",
           "nixpkgs"
@@ -491,19 +509,6 @@
         "type": "github"
       }
     },
-    "nika-firmware": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1735203240,
-        "narHash": "sha256-C768KJhzqW2Rub5l0Jk07nsGyaGP73P+CzNPhMqiY8g=",
-        "path": "/home/kitotavrik/documents/programming/nixos-config/hosts/nika/firmware",
-        "type": "path"
-      },
-      "original": {
-        "path": "/home/kitotavrik/documents/programming/nixos-config/hosts/nika/firmware",
-        "type": "path"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -529,23 +534,35 @@
       "locked": {
         "lastModified": 1737469691,
         "narHash": "sha256-nmKOgAU48S41dTPIXAq0AHZSehWUn6ZPrUKijHAMmIk=",
-        "owner": "nixos",
+        "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "9e4d5190a9482a1fb9d18adf0bdb83c6e506eaab",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
+        "owner": "NixOS",
         "repo": "nixpkgs",
+        "rev": "9e4d5190a9482a1fb9d18adf0bdb83c6e506eaab",
         "type": "github"
+      }
+    },
+    "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1738452942,
+        "narHash": "sha256-vJzFZGaCpnmo7I6i416HaBLpC+hvcURh/BQwROcGIp8=",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/072a6db25e947df2f31aab9eccd0ab75d5b2da11.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/072a6db25e947df2f31aab9eccd0ab75d5b2da11.tar.gz"
       }
     },
     "nixvim": {
       "inputs": {
         "devshell": "devshell",
         "flake-compat": "flake-compat_2",
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager_2",
         "nix-darwin": "nix-darwin",
@@ -616,14 +633,13 @@
       "inputs": {
         "ags": "ags",
         "apple-silicon-support": "apple-silicon-support",
+        "flake-parts": "flake-parts",
         "home-manager": "home-manager",
-        "nika-firmware": "nika-firmware",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "nypkgs": "nypkgs",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
-        "systems": "systems_3",
         "treefmt-nix": "treefmt-nix_2"
       }
     },
@@ -726,20 +742,6 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
-      }
-    },
-    "systems_3": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "id": "systems",
-        "type": "indirect"
       }
     },
     "tinted-foot": {

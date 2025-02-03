@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}:
+_:
 
 {
   boot = {
@@ -19,8 +16,7 @@
     graphics.enable = true;
 
     asahi = {
-      # TODO: https://github.com/tpwrules/nixos-apple-silicon/issues/59
-      peripheralFirmwareDirectory = inputs.nika-firmware;
+      peripheralFirmwareDirectory = ./firmware;
       withRust = true;
       useExperimentalGPUDriver = true;
       experimentalGPUInstallMode = "replace";
