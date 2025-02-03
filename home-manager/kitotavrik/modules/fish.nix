@@ -14,7 +14,7 @@
 
       shellAliases = {
         nd = "nix develop -c fish";
-        nr = "sudo nixos-rebuild --impure";
+        nr = "sudo nixos-rebuild";
         bat = "cat /sys/class/power_supply/macsmc-battery/capacity";
       };
 

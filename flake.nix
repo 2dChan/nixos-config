@@ -5,6 +5,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     # TODO: nixos-unstable
     nixpkgs.url = "github:NixOS/nixpkgs/9e4d5190a9482a1fb9d18adf0bdb83c6e506eaab";
+    nixpkgs23_11.url = "github:NixOS/nixpkgs/nixos-23.11";
 
     ags = {
       url = "github:aylur/ags";
@@ -89,6 +90,9 @@
                   {
                     home-manager = {
                       extraSpecialArgs = {
+                        pkgs23_11 = import inputs.nixpkgs23_11 {
+                          inherit (cfg) system;
+                        };
                         inherit inputs ylib;
                       };
                       useGlobalPkgs = true;
