@@ -69,7 +69,6 @@
         name: cfg:
         let
           ylib = inputs.nypkgs.lib.${cfg.system};
-          stateVersion = "24.05";
 
         in
         nixpkgs.lib.nixosSystem {
@@ -86,7 +85,7 @@
               {
                 home-manager = {
                   extraSpecialArgs = {
-                    inherit inputs ylib stateVersion;
+                    inherit inputs ylib;
                   };
 
                   useGlobalPkgs = true;
@@ -111,7 +110,7 @@
             ++ (cfg.externalModules or [ ]);
 
           specialArgs = {
-            inherit ylib stateVersion inputs;
+            inherit ylib inputs;
           };
         };
 

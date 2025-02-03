@@ -1,5 +1,4 @@
 {
-  stateVersion,
   ylib,
   ...
 }:
@@ -14,7 +13,6 @@
   home = {
     username = "kitotavrik";
     homeDirectory = "/home/kitotavrik";
-
-    inherit stateVersion;
+		stateVersion = "24.05";
   };
 }

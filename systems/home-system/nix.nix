@@ -1,6 +1,5 @@
 {
   lib,
-  stateVersion,
   ...
 }:
 
@@ -27,6 +26,4 @@
   };
 
   documentation.nixos.enable = false;
-
-  system.stateVersion = stateVersion;
 }

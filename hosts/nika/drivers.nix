@@ -36,4 +36,6 @@
   services.udev.extraRules = ''
     		SUBSYSTEM=="power_supply", KERNEL=="macsmc-battery", ATTR{charge_control_end_threshold}="80"
     	'';
+
+	system.stateVersion = "24.05";
 }
