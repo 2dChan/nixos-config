@@ -19,11 +19,11 @@ let
       "${patches}/patches/simpleborders/simpleborders-v0.7.patch"
       "${patches}/patches/modes/modes.patch"
       "${patches}/patches/pertag/pertag.patch"
-			"${patches}/patches/restore-monitor/restore-monitor.patch"
+      "${patches}/patches/restore-monitor/restore-monitor.patch"
       "${patches}/patches/naturalscrolltrackpad/naturalscrolltrackpad.patch"
       "${patches}/patches/switchtotag/switchtotag.patch"
-			"${patches}/patches/monitorconfig/monitorconfig.patch"
-			./patches/notch.patch
+      "${patches}/patches/monitorconfig/monitorconfig.patch"
+      ./patches/notch.patch
     ];
   });
 

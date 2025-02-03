@@ -4,13 +4,13 @@ _:
   programs.nixvim.plugins.floaterm = {
     enable = true;
 
-		settings = {
-			width = 0.7;
-    	height = 0.7;
+    settings = {
+      width = 0.7;
+      height = 0.7;
 
-    	title = "Terminal";
+      title = "Terminal";
 
-    	keymap_toggle = "<leader>t";
-		};
+      keymap_toggle = "<leader>t";
+    };
   };
 }

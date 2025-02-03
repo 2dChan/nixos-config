@@ -13,6 +13,6 @@
   home = {
     username = "kitotavrik";
     homeDirectory = "/home/kitotavrik";
-		stateVersion = "24.05";
+    stateVersion = "24.05";
   };
 }
