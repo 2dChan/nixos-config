@@ -87,25 +87,6 @@
 
                   { networking.hostName = "${name}"; }
 
-                  {
-                    home-manager = {
-                      extraSpecialArgs = {
-                        pkgs23_11 = import inputs.nixpkgs23_11 {
-                          inherit (cfg) system;
-                        };
-                        inherit inputs ylib;
-                      };
-                      useGlobalPkgs = true;
-                      useUserPackages = true;
-                      sharedModules = [
-                        inputs.ags.homeManagerModules.default
-                        inputs.nixvim.homeManagerModules.nixvim
-                        inputs.sops-nix.homeManagerModules.sops
-                      ];
-
-                      users.kitotavrik = import ./home-manager/kitotavrik/home.nix;
-                    };
-                  }
                 ]
                 ++ ylib.umport {
                   paths = [
@@ -117,6 +98,9 @@
                 ++ (cfg.externalModules or [ ]);
 
               specialArgs = {
+								pkgs23_11 = import inputs.nixpkgs23_11 {
+									inherit (cfg) system;
+								};
                 inherit ylib inputs;
               };
             };
