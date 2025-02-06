@@ -7,6 +7,8 @@
 {
   boot.loader.efi.canTouchEfiVariables = true;
 
+  networking.hostName = "cat";
+
   security = {
     # rtkit using for pipewire optional but recommended.
     rtkit.enable = true;

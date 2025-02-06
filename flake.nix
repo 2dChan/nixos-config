@@ -72,35 +72,24 @@
         let
           makeHomeSystem =
             name: cfg:
-            let
-              ylib = inputs.nypkgs.lib.${cfg.system};
-            in
             inputs.nixpkgs.lib.nixosSystem {
               inherit (cfg) system;
 
               modules =
                 [
-                  inputs.stylix.nixosModules.stylix
                   inputs.sops-nix.nixosModules.sops
+                  inputs.stylix.nixosModules.stylix
                   inputs.home-manager.nixosModules.home-manager
-
-                  { networking.hostName = "${name}"; }
-
-                ]
-                ++ ylib.umport {
-                  paths = [
-                    ./systems/home-system
-                    ./hosts/${name}
-                  ];
-                  recursive = true;
-                }
-                ++ (cfg.externalModules or [ ]);
+									./hosts/${name}
+									./systems/home-system
+                ] ++ (cfg.modules or []);
 
               specialArgs = {
 								pkgs23_11 = import inputs.nixpkgs23_11 {
 									inherit (cfg) system;
 								};
-                inherit ylib inputs;
+								ylib = inputs.nypkgs.lib.${cfg.system};
+                inherit inputs;
               };
             };
         in
@@ -112,9 +101,9 @@
 
             nika = {
               system = "aarch64-linux";
-              externalModules = [
-                inputs.apple-silicon-support.nixosModules.apple-silicon-support
-              ];
+							modules = [
+								inputs.apple-silicon-support.nixosModules.apple-silicon-support
+							];
             };
           };
         };

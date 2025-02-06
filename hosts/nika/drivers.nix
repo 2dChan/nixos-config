@@ -8,8 +8,13 @@ _:
     ];
   };
 
+  networking.hostName = "nika";
+
   services = {
     fstrim.enable = true;
+    udev.extraRules = ''
+      		SUBSYSTEM=="power_supply", KERNEL=="macsmc-battery", ATTR{charge_control_end_threshold}="80"
+      	'';
   };
 
   hardware = {
@@ -19,7 +24,6 @@ _:
       peripheralFirmwareDirectory = ./firmware;
       withRust = true;
       useExperimentalGPUDriver = true;
-      experimentalGPUInstallMode = "replace";
       setupAsahiSound = true;
     };
 
@@ -28,10 +32,6 @@ _:
       powerOnBoot = true;
     };
   };
-
-  services.udev.extraRules = ''
-    		SUBSYSTEM=="power_supply", KERNEL=="macsmc-battery", ATTR{charge_control_end_threshold}="80"
-    	'';
 
   system.stateVersion = "24.05";
 }
