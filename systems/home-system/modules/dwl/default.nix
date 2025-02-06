@@ -38,7 +38,7 @@ let
 
 in
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     (dwl-custom.override {
       configH = builtins.readFile (
         pkgs.substituteAll {
@@ -48,7 +48,7 @@ in
           focus_color = config.lib.stylix.colors.base0D;
           urgent_color = config.lib.stylix.colors.base08;
 
-          edp1_scale = 1.74;
+          edp1_scale = config.edp1_scale;
         }
       );
     })

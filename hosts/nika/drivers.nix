@@ -1,4 +1,7 @@
-_:
+{
+	lib,
+	...
+}:
 
 {
   boot = {
@@ -32,6 +35,8 @@ _:
       powerOnBoot = true;
     };
   };
+
+	edp1_scale = 1.74;
 
   system.stateVersion = "24.05";
 }
