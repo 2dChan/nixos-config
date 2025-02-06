@@ -3,8 +3,7 @@
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
-    # TODO: nixos-unstable
-    nixpkgs.url = "github:NixOS/nixpkgs/9e4d5190a9482a1fb9d18adf0bdb83c6e506eaab";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs23_11.url = "github:NixOS/nixpkgs/nixos-23.11";
 
     ags = {
@@ -32,8 +31,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:danth/stylix/36c39ff014a8abbc682a073b2c5ba6cea77cf41e";
+			#  inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
