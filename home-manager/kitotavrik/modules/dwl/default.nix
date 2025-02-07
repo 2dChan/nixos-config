@@ -1,5 +1,6 @@
 {
   pkgs,
+	osConfig,
   config,
   lib,
   ...
@@ -14,7 +15,13 @@ let
   };
 
   dwl-custom = pkgs.dwl.overrideAttrs (_oldAttrs: {
-    src = ./source;
+    src = pkgs.fetchFromGitea {
+    domain = "codeberg.org";
+    owner = "dwl";
+    repo = "dwl";
+    rev = "0.7";
+    sha256 = "sha256-eh5dJ6rnwjqiUXzffhAN5pQ8JUxZEJuJS4G2Dod+wgk=";
+  };
     patches = [
       "${patches}/patches/simpleborders/simpleborders-v0.7.patch"
       "${patches}/patches/modes/modes.patch"
@@ -38,7 +45,7 @@ let
 
 in
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     (dwl-custom.override {
       configH = builtins.readFile (
         pkgs.substituteAll {
@@ -48,7 +55,7 @@ in
           focus_color = config.lib.stylix.colors.base0D;
           urgent_color = config.lib.stylix.colors.base08;
 
-          edp1_scale = config.edp1_scale;
+          edp1_scale = osConfig.edp1_scale;
         }
       );
     })
