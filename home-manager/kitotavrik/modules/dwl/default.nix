@@ -1,6 +1,6 @@
 {
   pkgs,
-	osConfig,
+  osConfig,
   config,
   lib,
   ...
@@ -16,12 +16,12 @@ let
 
   dwl-custom = pkgs.dwl.overrideAttrs (_oldAttrs: {
     src = pkgs.fetchFromGitea {
-    domain = "codeberg.org";
-    owner = "dwl";
-    repo = "dwl";
-    rev = "0.7";
-    sha256 = "sha256-eh5dJ6rnwjqiUXzffhAN5pQ8JUxZEJuJS4G2Dod+wgk=";
-  };
+      domain = "codeberg.org";
+      owner = "dwl";
+      repo = "dwl";
+      rev = "0.7";
+      sha256 = "sha256-eh5dJ6rnwjqiUXzffhAN5pQ8JUxZEJuJS4G2Dod+wgk=";
+    };
     patches = [
       "${patches}/patches/simpleborders/simpleborders-v0.7.patch"
       "${patches}/patches/modes/modes.patch"
@@ -55,7 +55,26 @@ in
           focus_color = config.lib.stylix.colors.base0D;
           urgent_color = config.lib.stylix.colors.base08;
 
-          edp1_scale = osConfig.edp1_scale;
+          monitors =
+            with builtins;
+            with osConfig.eDP-1;
+            ''
+              						{ 
+              							"eDP-1", 
+              							0.55f, 
+              							1,
+              							${toString scale}, 
+              							&layouts[0], 
+              							WL_OUTPUT_TRANSFORM_NORMAL, 
+              							${toString position.x},
+              							${toString position.y}, 
+              							0, 
+              							0, 
+              							${toString rate}, 
+              							1, 
+              							0 
+              						}
+              					'';
         }
       );
     })

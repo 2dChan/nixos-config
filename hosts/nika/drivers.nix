@@ -36,7 +36,7 @@
     };
   };
 
-	edp1_scale = 1.74;
+	eDP-1.scale = 1.74;
 
   system.stateVersion = "24.05";
 }
