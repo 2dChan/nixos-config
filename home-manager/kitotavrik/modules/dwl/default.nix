@@ -72,7 +72,7 @@ in
               							0, 
               							${toString rate}, 
               							1, 
-              							0 
+              							${toString adaptive} 
               						}
               					'';
         }

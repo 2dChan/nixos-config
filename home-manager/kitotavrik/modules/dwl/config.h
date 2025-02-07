@@ -52,15 +52,10 @@ static const Layout layouts[] = {
 
 /* monitors */
 static const MonitorRule monrules[] = {
-	/* name       mfact  nmaster scale       layout       rotate/reflect                x    y */
-//	{ "HDMI-A-1", 0.65f, 1,            1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   0,     0 },
-//	{ "eDP-1",    0.5f,  1, @edp1_scale@,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   2560,  0 },
-//
-//	{ NULL,       0.55f, 1,            1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,   -1 },
-	/* name       mfact    nmaster scale layout       rotate/reflect                        x  y  resx resy rate mode adaptive*/
-	{ "HDMI-A-1", 0.65f, 1,            1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   0,   0, 0, 0, 144.0f, 1, 0 },
+	/* name       mfact  nmaster   scale  layout       rotate/reflect                x  y  resx resy rate mode adaptive*/
+	{ "HDMI-A-1", 0.65f, 1,        1,     &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   0,   0, 0, 0, 144.0f, 1, 0 },
 	@monitors@,
-	{ NULL,       0.55f, 1,            1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1, -1, 0, 0, 0.0f, 0 ,1 },
+	{ NULL,       0.55f, 1,        1,     &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1, -1, 0, 0, 0.0f, 0, 1 },
 };
 
 /* keyboard */
