@@ -59,20 +59,20 @@ in
             with builtins;
             with osConfig.eDP-1;
             ''
-              						{ 
-              							"eDP-1", 
-              							0.55f, 
+              						{
+              							"eDP-1",
+              							0.55f,
               							1,
-              							${toString scale}, 
-              							&layouts[0], 
-              							WL_OUTPUT_TRANSFORM_NORMAL, 
+              							${toString scale},
+              							&layouts[0],
+              							WL_OUTPUT_TRANSFORM_NORMAL,
               							${toString position.x},
-              							${toString position.y}, 
-              							0, 
-              							0, 
-              							${toString rate}, 
-              							1, 
-              							${toString adaptive} 
+              							${toString position.y},
+              							0,
+              							0,
+              							${toString rate},
+              							1,
+              							${toString adaptive}
               						}
               					'';
         }
