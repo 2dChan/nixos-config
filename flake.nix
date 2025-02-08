@@ -32,7 +32,7 @@
     };
     stylix = {
       url = "github:danth/stylix/36c39ff014a8abbc682a073b2c5ba6cea77cf41e";
-			#  inputs.nixpkgs.follows = "nixpkgs";
+      #  inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -75,20 +75,19 @@
             inputs.nixpkgs.lib.nixosSystem {
               inherit (cfg) system;
 
-              modules =
-                [
-                  inputs.sops-nix.nixosModules.sops
-                  inputs.stylix.nixosModules.stylix
-                  inputs.home-manager.nixosModules.home-manager
-									./hosts/${name}
-									./systems/home-system
-                ] ++ (cfg.modules or []);
+              modules = [
+                inputs.sops-nix.nixosModules.sops
+                inputs.stylix.nixosModules.stylix
+                inputs.home-manager.nixosModules.home-manager
+                ./hosts/${name}
+                ./systems/home-system
+              ] ++ (cfg.modules or [ ]);
 
               specialArgs = {
-								pkgs23_11 = import inputs.nixpkgs23_11 {
-									inherit (cfg) system;
-								};
-								ylib = inputs.nypkgs.lib.${cfg.system};
+                pkgs23_11 = import inputs.nixpkgs23_11 {
+                  inherit (cfg) system;
+                };
+                ylib = inputs.nypkgs.lib.${cfg.system};
                 inherit inputs;
               };
             };
@@ -101,9 +100,9 @@
 
             nika = {
               system = "aarch64-linux";
-							modules = [
-								inputs.apple-silicon-support.nixosModules.apple-silicon-support
-							];
+              modules = [
+                inputs.apple-silicon-support.nixosModules.apple-silicon-support
+              ];
             };
           };
         };

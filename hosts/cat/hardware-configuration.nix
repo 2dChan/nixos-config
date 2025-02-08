@@ -25,8 +25,8 @@
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
-  
-	fileSystems = {
+
+  fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/d476aa47-5fe9-4333-bdd7-edac2163c08a";
       fsType = "ext4";

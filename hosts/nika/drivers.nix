@@ -1,7 +1,4 @@
-{
-	lib,
-	...
-}:
+_:
 
 {
   boot = {
@@ -36,10 +33,19 @@
     };
   };
 
-	eDP-1 = {
-		scale = 1.74;
-		position.x = 2560;
-	};
+  monitors = [
+    {
+      name = "eDP-1";
+      mfact = 0.55;
+      scale = 1.74;
+      position.x = 2560;
+    }
+    {
+      name = "HDMI-A-1";
+      mfact = 0.65;
+      rate = 144.0;
+    }
+  ];
 
   system.stateVersion = "24.05";
 }

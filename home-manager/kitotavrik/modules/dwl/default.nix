@@ -35,13 +35,34 @@ let
   });
 
   dwl-start = pkgs.writeScriptBin "dwl-start" ''
-    			do=true
-    			while $do ||  [ -f /tmp/restart_dwl ]; do
-    			    do=false
-    			    rm -rf /tmp/restart_dwl > /dev/null 2>&1
-    			    dwl -s "swww-daemon & ags run" 2> ~/.cache/dwl.txt 
-    			done
-    		'';
+    					do=true
+    					while $do ||	[ -f /tmp/restart_dwl ]; do
+    							do=false
+    							rm -rf /tmp/restart_dwl > /dev/null 2>&1
+    							dwl -s "swww-daemon & ags run" 2> ~/.cache/dwl.txt 
+    					done
+    				'';
+
+  wrapMonitors =
+    monitors:
+    with builtins;
+    lib.map (monitor: ''
+      		{
+      			"${monitor.name}",
+      			${toString monitor.mfact},
+      			1,
+      			${toString monitor.scale},
+      			&layouts[0],
+      			WL_OUTPUT_TRANSFORM_NORMAL,
+      			${toString monitor.position.x},
+      			${toString monitor.position.y},
+      			${toString monitor.resolution.x},
+      			${toString monitor.resolution.y},
+      			${toString monitor.rate},
+      			${toString monitor.mode},
+      			${toString monitor.adaptive}
+      		},
+      	'') monitors;
 
 in
 {
@@ -54,27 +75,7 @@ in
           border_color = config.lib.stylix.colors.base03;
           focus_color = config.lib.stylix.colors.base0D;
           urgent_color = config.lib.stylix.colors.base08;
-
-          monitors =
-            with builtins;
-            with osConfig.eDP-1;
-            ''
-              						{
-              							"eDP-1",
-              							0.55f,
-              							1,
-              							${toString scale},
-              							&layouts[0],
-              							WL_OUTPUT_TRANSFORM_NORMAL,
-              							${toString position.x},
-              							${toString position.y},
-              							0,
-              							0,
-              							${toString rate},
-              							1,
-              							${toString adaptive}
-              						}
-              					'';
+          monitors = wrapMonitors osConfig.monitors;
         }
       );
     })

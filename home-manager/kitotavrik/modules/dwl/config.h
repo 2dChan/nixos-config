@@ -53,8 +53,7 @@ static const Layout layouts[] = {
 /* monitors */
 static const MonitorRule monrules[] = {
 	/* name       mfact  nmaster   scale  layout       rotate/reflect                x  y  resx resy rate mode adaptive*/
-	{ "HDMI-A-1", 0.65f, 1,        1,     &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   0,   0, 0, 0, 144.0f, 1, 0 },
-	@monitors@,
+	@monitors@
 	{ NULL,       0.55f, 1,        1,     &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1, -1, 0, 0, 0.0f, 0, 1 },
 };
 

@@ -1,14 +1,14 @@
 {
-	ylib,
-	...
+  ylib,
+  ...
 }:
 
 {
-	imports = ylib.umport {
+  imports = ylib.umport {
     path = ./.;
-		exclude = [
-			./default.nix
-		];
+    exclude = [
+      ./default.nix
+    ];
     recursive = true;
-	};
+  };
 }

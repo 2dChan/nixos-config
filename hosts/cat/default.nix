@@ -1,11 +1,10 @@
 {
-	inputs,
-	...
+  ...
 }:
 
 {
-	imports = [
-		./drivers.nix
-		./hardware-configuration.nix
-	];
+  imports = [
+    ./drivers.nix
+    ./hardware-configuration.nix
+  ];
 }
