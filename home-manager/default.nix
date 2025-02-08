@@ -18,6 +18,6 @@
       inputs.sops-nix.homeManagerModules.sops
     ];
 
-    users.kitotavrik = import ../../../home-manager/kitotavrik/home.nix;
+    users.kitotavrik = import ./kitotavrik/home.nix;
   };
 }

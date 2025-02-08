@@ -81,6 +81,7 @@
                 inputs.home-manager.nixosModules.home-manager
                 ./hosts/${name}
                 ./systems/home-system
+                ./home-manager
               ] ++ (cfg.modules or [ ]);
 
               specialArgs = {
