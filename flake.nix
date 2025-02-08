@@ -68,7 +68,7 @@
           ];
         };
       };
-      flake =
+      flake.nixosConfigurations =
         let
           makeHomeSystem =
             name: cfg:
@@ -93,18 +93,16 @@
               };
             };
         in
-        {
-          nixosConfigurations = inputs.nixpkgs.lib.mapAttrs makeHomeSystem {
-            cat = {
-              system = "x86_64-linux";
-            };
+        inputs.nixpkgs.lib.mapAttrs makeHomeSystem {
+          cat = {
+            system = "x86_64-linux";
+          };
 
-            nika = {
-              system = "aarch64-linux";
-              modules = [
-                inputs.apple-silicon-support.nixosModules.apple-silicon-support
-              ];
-            };
+          nika = {
+            system = "aarch64-linux";
+            modules = [
+              inputs.apple-silicon-support.nixosModules.apple-silicon-support
+            ];
           };
         };
     };
