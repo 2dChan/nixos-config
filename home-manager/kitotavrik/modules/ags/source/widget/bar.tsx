@@ -66,9 +66,6 @@ export default function Bar(monitor: Gdk.Monitor) {
 			anchor={TOP | LEFT | RIGHT}
 		>
 			<box className="barContainer">
-				<box hexpand halign={Gtk.Align.START}>
-					<label label={"             "} />
-				</box>
 				<box hexpand halign={Gtk.Align.END}>
 					<VolumeLevel />
 					<BluetoothConection />
@@ -81,3 +78,8 @@ export default function Bar(monitor: Gdk.Monitor) {
 		</window>
 	);
 }
+/*
+<box hexpand halign={Gtk.Align.START}>
+	<label label={"             "} />
+</box>
+*/
