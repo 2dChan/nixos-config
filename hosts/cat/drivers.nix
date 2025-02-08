@@ -78,5 +78,18 @@
     };
   };
 
+  monitors = [
+    {
+      name = "eDP-1";
+      mfact = 0.55;
+      position.x = 2560;
+    }
+    {
+      name = "HDMI-A-1";
+      mfact = 0.65;
+      rate = 60.0;
+    }
+  ];
+
   stateVersion = "24.05";
 }
