@@ -18,7 +18,7 @@ function VolumeLevel() {
 	const speaker = Wp.get_default()?.audio.defaultSpeaker!;
 
 	return (
-		<eventbox className="VolumeLevel">
+		<eventbox className="volume">
 			<box>
 				<icon icon={bind(speaker, "volumeIcon")} />
 			</box>

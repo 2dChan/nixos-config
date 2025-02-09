@@ -26,6 +26,20 @@ export default class Battery extends GObject.Object {
 		return this.#persantage;
 	}
 
+	@property(String)
+	get icon() {
+		const value = this.persantage / 20 * 2;
+		let status: string;
+
+		if (value == 10){
+			status = `${value}0`;
+		}
+		else {
+			status = `0${value}0`
+		}
+		return `battery-${status}`;
+	}
+
 	constructor() {
 		super();
 
@@ -35,6 +49,7 @@ export default class Battery extends GObject.Object {
 			const v = await readFileAsync(batteryPath);
 			this.#persantage = Number(v);
 			this.notify("persantage");
+			this.notify("icon");
 		});
 	}
 }

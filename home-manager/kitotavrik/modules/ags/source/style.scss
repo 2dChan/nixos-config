@@ -43,10 +43,14 @@ window.Bar {
 		background-color: $blue;
 	}
 
+	.volume {
+		font-size: 17px;
+	}
+	
 	circularprogress {
-		min-width: 23px;
+		min-width: 20px;
 
-		font-size: 7px;
+		font-size: 5px;
 
 		color: #a9b665;
 		background-color: $bg1-color;
