@@ -18,8 +18,8 @@ window.Bar {
 		padding-right: 15px;
 	}
 
-	.Split {
-		margin-right: 10px;
+	.Battery {
+		font-size: 18px;
 	}
 
 	.Bluetooth {
@@ -35,7 +35,11 @@ window.Bar {
 		background-color: $blue;
 	}
 
-	.Battery {
-		font-size: 18px;
+	.Split {
+		margin-right: 10px;
+	}
+
+	.Time {
+		margin: -5px;
 	}
 }

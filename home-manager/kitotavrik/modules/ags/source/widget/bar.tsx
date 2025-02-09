@@ -41,7 +41,9 @@ function Time({ format = " %I:%M %p" }) {
 	);
 
 	return (
-		<label className="Time" onDestroy={() => time.drop()} label={time()} />
+		<box className="Time">
+			<label onDestroy={() => time.drop()} label={time()} />
+		</box>
 	);
 }
 
