@@ -10,8 +10,8 @@ let
     domain = "codeberg.org";
     owner = "dwl";
     repo = "dwl-patches";
-    rev = "main";
-    sha256 = "sha256-Pl64ZZsnWtv1c+m83euJ9ukBeGxIvKGQHv5qPDp3qnc=";
+    rev = "32a21e22613b6cb2a79bad587b4b2b182b2e55f5";
+    sha256 = "sha256-8M7FiFXhcdRfYusqdlKQyy/bcaB4EInYiqnM0K+I4n0=";
   };
 
   dwl-custom = pkgs.dwl.overrideAttrs (_oldAttrs: {
