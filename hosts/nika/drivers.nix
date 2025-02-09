@@ -43,7 +43,7 @@ _:
     {
       name = "HDMI-A-1";
       mfact = 0.65;
-      rate = 144.0;
+			mode = 1;
     }
   ];
 
