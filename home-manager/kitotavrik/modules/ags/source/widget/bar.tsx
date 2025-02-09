@@ -10,7 +10,7 @@ function BluetoothConection() {
 	const bluetooth = Bluetooth.get_default();
 
 	return bind(bluetooth, "is_connected").as((is) =>
-		is ? <box className="bluetoothDot" /> : <box />,
+		is ? <box className="Bluetooth" /> : <box />,
 	);
 }
 
@@ -18,27 +18,19 @@ function VolumeLevel() {
 	const speaker = Wp.get_default()?.audio.defaultSpeaker!;
 
 	return (
-		<eventbox className="volume">
-			<box>
-				<icon icon={bind(speaker, "volumeIcon")} />
-			</box>
-		</eventbox>
+		<box className="Volume">
+			<icon icon={bind(speaker, "volumeIcon")} />
+		</box>
 	);
 }
 
 function BatteryLevel() {
-	const bat = Battery.get_default();
+	const battery = Battery.get_default();
 
 	return (
-		<overlay className="Battery">
-			<circularprogress
-				value={bind(bat, "persantage").as((p) => p / 100)}
-				startAt={0.75}
-				endAt={0.75}
-			>
-				<icon />
-			</circularprogress>
-		</overlay>
+		<box className="Battery">
+			<icon icon={bind(battery, "icon")} />
+		</box>
 	);
 }
 
@@ -65,13 +57,13 @@ export default function Bar(monitor: Gdk.Monitor) {
 			exclusivity={Astal.Exclusivity.EXCLUSIVE}
 			anchor={TOP | LEFT | RIGHT}
 		>
-			<box className="barContainer">
+			<box className="BarContainer">
 				<box hexpand halign={Gtk.Align.END}>
 					<VolumeLevel />
 					<BluetoothConection />
-					<box className="vLine" />
+					<box className="Split" />
 					<BatteryLevel />
-					<box className="vLine" />
+					<box className="Split" />
 					<Time />
 				</box>
 			</box>

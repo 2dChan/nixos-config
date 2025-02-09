@@ -6,7 +6,7 @@ import { interval } from "astal/time";
 import { exec, execAsync } from "astal/process";
 
 const get = (args: string) =>
-	Number(exec(`cat /sys/class/power_supply/macsmc-battery/${args}`));
+	Number(exec(`cat /sys/class/power_supply/${args}`));
 
 @register({ GTypeName: "Battery" })
 export default class Battery extends GObject.Object {
@@ -18,37 +18,45 @@ export default class Battery extends GObject.Object {
 		return this.instance;
 	}
 
-	timeInterval = 10 ** 5;
-	#persantage = get("capacity");
+	timeInterval = 10 ** 4;
+	#capacity = get("macsmc-battery/capacity");
+	#charging = get("macsmc-ac/online");
 
 	@property(Number)
-	get persantage() {
-		return this.#persantage;
+	get capacity() {
+		return this.#capacity;
+	}
+
+	@property(Number)
+	get charging() {
+		return this.#charging;
 	}
 
 	@property(String)
 	get icon() {
-		const value = this.persantage / 20 * 2;
+		const value = Math.ceil(this.capacity / 10) * 10;
 		let status: string;
 
-		if (value == 10){
-			status = `${value}0`;
+		status = `${value}`;
+		if (this.charging) {
+			status += "-charging";
 		}
-		else {
-			status = `0${value}0`
-		}
-		return `battery-${status}`;
+		return `battery-level-${status}-symbolic`;
 	}
 
 	constructor() {
 		super();
 
 		interval(this.timeInterval, async () => {
-			const batteryPath = `/sys/class/power_supply/macsmc-battery/capacity`;
+			const capacityPath = `/sys/class/power_supply/macsmc-battery/capacity`;
+			const chargingPath = `/sys/class/power_supply/macsmc-ac/online`;
 
-			const v = await readFileAsync(batteryPath);
-			this.#persantage = Number(v);
-			this.notify("persantage");
+			const capacity = await readFileAsync(capacityPath);
+			this.#capacity = Number(capacity);
+			this.notify("capacity");
+			const charging = await readFileAsync(chargingPath);
+			this.#charging = Number(charging);
+			this.notify("charging");
 			this.notify("icon");
 		});
 	}
