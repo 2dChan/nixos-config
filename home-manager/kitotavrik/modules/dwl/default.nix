@@ -43,10 +43,10 @@ let
     					done
     				'';
 
-  wrapMonitors =
-    monitors:
+  wrapMonitor =
+    monitor:
     with builtins;
-    lib.map (monitor: ''
+    ''
       		{
       			"${monitor.name}",
       			${toString monitor.mfact},
@@ -62,7 +62,7 @@ let
       			${toString monitor.mode},
       			${toString monitor.adaptive}
       		},
-      	'') monitors;
+      	'';
 
 in
 {
@@ -75,7 +75,7 @@ in
           border_color = config.lib.stylix.colors.base03;
           focus_color = config.lib.stylix.colors.base0D;
           urgent_color = config.lib.stylix.colors.base08;
-          monitors = wrapMonitors osConfig.monitors;
+          monitors = map wrapMonitor osConfig.monitors;
         }
       );
     })
