@@ -1,11 +1,11 @@
 {
-  pkgs23_11,
+  pkgs,
   ...
 }:
 
 {
   gtk = {
     iconTheme.name = "WhiteSur-dark";
-    iconTheme.package = pkgs23_11.whitesur-icon-theme;
+    iconTheme.package = pkgs.whitesur-icon-theme;
   };
 }

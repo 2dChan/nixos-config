@@ -44,9 +44,7 @@ let
     				'';
 
   wrapMonitor =
-    monitor:
-    with builtins;
-    ''
+    monitor: with builtins; ''
       		{
       			"${monitor.name}",
       			${toString monitor.mfact},
