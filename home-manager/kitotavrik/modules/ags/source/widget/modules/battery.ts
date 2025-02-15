@@ -34,7 +34,7 @@ export default class Battery extends GObject.Object {
 
 	@property(String)
 	get icon() {
-		const value = Math.ceil(this.capacity / 10) * 10;
+		const value = Math.round(this.capacity / 10) * 10;
 		let status: string;
 
 		status = `${value}`;
