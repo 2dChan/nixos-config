@@ -3,6 +3,7 @@ _:
 {
   boot = {
     loader.efi.canTouchEfiVariables = false;
+    m1n1CustomLogo = ./logo.png;
     kernelParams = [
       "apple_dcp.show_notch=1"
     ];
