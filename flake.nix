@@ -55,11 +55,13 @@
         treefmt = {
           projectRootFile = "flake.nix";
 
-          programs.deadnix.enable = true;
-          programs.statix.enable = true;
-          programs.nixfmt.enable = true;
-          programs.shfmt.enable = true;
-          programs.prettier.enable = true;
+          programs = {
+            deadnix.enable = true;
+            statix.enable = true;
+            nixfmt.enable = true;
+            shfmt.enable = true;
+            prettier.enable = true;
+          };
 
           settings.excludes = [
             "*.lock"
