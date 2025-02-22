@@ -3,7 +3,7 @@ _:
 {
   programs.git = {
     enable = true;
-    userName = "firefenix";
+    userName = "2dChan";
     userEmail = "kitotavrik.media@gmail.com";
   };
 }
