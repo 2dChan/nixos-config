@@ -2,7 +2,7 @@ _:
 
 {
   sops = {
-    age.keyFile = "/keys.txt";
+    age.keyFile = "/Users/kitotavrik/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";
   };
