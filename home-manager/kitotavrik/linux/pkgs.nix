@@ -7,10 +7,9 @@
   home.packages = with pkgs; [
     bluetuith
     brightnessctl
+    kotatogram-desktop
     pamixer
-    p7zip
     swww
-    wget
     wl-clipboard
   ];
 }

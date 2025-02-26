@@ -18,6 +18,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +45,7 @@
   };
 
   outputs =
-    inputs@{ flake-parts, ... }:
+    inputs@{ flake-parts, self, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         inputs.treefmt-nix.flakeModule
@@ -70,42 +74,61 @@
           ];
         };
       };
-      flake.nixosConfigurations =
-        let
-          makeHomeSystem =
-            name: cfg:
-            inputs.nixpkgs.lib.nixosSystem {
-              inherit (cfg) system;
+      flake = {
+        nixosConfigurations =
+          let
+            makeHomeSystem =
+              name: cfg:
+              inputs.nixpkgs.lib.nixosSystem {
+                inherit (cfg) system;
 
-              modules = [
-                inputs.sops-nix.nixosModules.sops
-                inputs.stylix.nixosModules.stylix
-                inputs.home-manager.nixosModules.home-manager
-                ./hosts/${name}
-                ./systems/home-system
-                ./home-manager
-              ] ++ (cfg.modules or [ ]);
+                modules = [
+                  inputs.sops-nix.nixosModules.sops
+                  inputs.stylix.nixosModules.stylix
+                  inputs.home-manager.nixosModules.home-manager
+                  ./hosts/${name}
+                  ./systems/home-system
+                  ./home-manager
+                ] ++ (cfg.modules or [ ]);
 
-              specialArgs = {
-                pkgs23_11 = import inputs.nixpkgs23_11 {
-                  inherit (cfg) system;
+                specialArgs = {
+                  pkgs23_11 = import inputs.nixpkgs23_11 {
+                    inherit (cfg) system;
+                  };
+                  ylib = inputs.nypkgs.lib.${cfg.system};
+                  inherit inputs;
                 };
-                ylib = inputs.nypkgs.lib.${cfg.system};
-                inherit inputs;
               };
+          in
+          inputs.nixpkgs.lib.mapAttrs makeHomeSystem {
+            cat = {
+              system = "x86_64-linux";
             };
-        in
-        inputs.nixpkgs.lib.mapAttrs makeHomeSystem {
-          cat = {
-            system = "x86_64-linux";
+
+            nika = {
+              system = "aarch64-linux";
+              modules = [
+                inputs.apple-silicon-support.nixosModules.apple-silicon-support
+              ];
+            };
           };
 
-          nika = {
-            system = "aarch64-linux";
-            modules = [
-              inputs.apple-silicon-support.nixosModules.apple-silicon-support
-            ];
+        darwinConfigurations."nika" = inputs.nix-darwin.lib.darwinSystem {
+          modules = [
+            inputs.stylix.darwinModules.stylix
+            inputs.home-manager.darwinModules.home-manager
+            ./systems/darwin
+            ./home-manager
+            { system.configurationRevision = self.rev or self.dirtyRev or null; }
+          ];
+          specialArgs = {
+            pkgs23_11 = import inputs.nixpkgs23_11 {
+              system = "aarch64-darwin";
+            };
+            ylib = inputs.nypkgs.lib."aarch64-darwin";
+            inherit inputs;
           };
         };
+      };
     };
 }

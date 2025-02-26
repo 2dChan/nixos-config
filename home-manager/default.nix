@@ -2,6 +2,7 @@
   ylib,
   inputs,
   pkgs23_11,
+  pkgs,
   ...
 }:
 
@@ -13,7 +14,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     sharedModules = [
-      inputs.ags.homeManagerModules.default
+      (pkgs.lib.mkIf pkgs.stdenv.isLinux inputs.ags.homeManagerModules.default)
       inputs.nixvim.homeManagerModules.nixvim
       inputs.sops-nix.homeManagerModules.sops
     ];

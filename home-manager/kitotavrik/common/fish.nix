@@ -15,6 +15,8 @@
       shellAliases = {
         nd = "nix develop -c fish";
         nr = "sudo nixos-rebuild";
+        # TODO: Refactor.
+        dr = "sudo darwin-rebuild --flake $HOME/Documents/nixos-config/";
         bat = "cat /sys/class/power_supply/macsmc-battery/capacity";
       };
 
@@ -37,10 +39,5 @@
         }
       ];
     };
-  };
-
-  xdg.desktopEntries.fish = {
-    name = "fish";
-    noDisplay = true;
   };
 }
