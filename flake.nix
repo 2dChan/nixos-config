@@ -87,7 +87,7 @@
                   inputs.stylix.nixosModules.stylix
                   inputs.home-manager.nixosModules.home-manager
                   ./hosts/nixos/${name}
-                  ./systems/home-system
+                  ./systems/nixos
                   ./home-manager
                 ] ++ (cfg.modules or [ ]);
 
