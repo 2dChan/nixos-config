@@ -90,6 +90,4 @@
       rate = 60.0;
     }
   ];
-
-  system.stateVersion = "24.05";
 }

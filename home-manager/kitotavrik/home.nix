@@ -1,28 +1,23 @@
 {
-  pkgs,
+  osConfig,
   ylib,
   ...
 }:
 
 {
+  # TODO: ADD linux import is pkgs.stdenv.isLinux == true.
   imports = ylib.umport {
     paths = [
       ./common
     ];
+    exclude = [
+      ./home.nix
+    ];
     recursive = true;
   };
-  home =
-    if pkgs.stdenv.isLinux then
-      {
-        username = "kitotavrik";
-        homeDirectory = "/home/kitotavrik";
-        stateVersion = "24.05";
-      }
-    else if pkgs.stdenv.isDarwin then
-      {
-        homeDirectory = "/Users/kitotavrik";
-        stateVersion = "25.05";
-      }
-    else
-      { };
+
+  home = {
+    # username = "kitotavrik"; TODO: Only nixos, maybe not needed?
+    homeDirectory = "${osConfig.users.users.kitotavrik.home}";
+  };
 }

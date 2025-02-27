@@ -86,7 +86,7 @@
                   inputs.sops-nix.nixosModules.sops
                   inputs.stylix.nixosModules.stylix
                   inputs.home-manager.nixosModules.home-manager
-                  ./hosts/${name}
+                  ./hosts/nixos/${name}
                   ./systems/home-system
                   ./home-manager
                 ] ++ (cfg.modules or [ ]);
@@ -117,16 +117,16 @@
           modules = [
             inputs.stylix.darwinModules.stylix
             inputs.home-manager.darwinModules.home-manager
+            ./hosts/darwin/nika
             ./systems/darwin
             ./home-manager
-            { system.configurationRevision = self.rev or self.dirtyRev or null; }
           ];
           specialArgs = {
             pkgs23_11 = import inputs.nixpkgs23_11 {
               system = "aarch64-darwin";
             };
             ylib = inputs.nypkgs.lib."aarch64-darwin";
-            inherit inputs;
+            inherit inputs self;
           };
         };
       };

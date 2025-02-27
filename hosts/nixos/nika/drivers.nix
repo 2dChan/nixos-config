@@ -47,6 +47,4 @@ _:
       mode = 1;
     }
   ];
-
-  system.stateVersion = "24.05";
 }
