@@ -1,8 +1,8 @@
 {
-  ylib,
   inputs,
   pkgs23_11,
   pkgs,
+  ylib,
   ...
 }:
 
@@ -19,6 +19,12 @@
       inputs.sops-nix.homeManagerModules.sops
     ];
 
-    users.kitotavrik = import ./kitotavrik/home.nix;
+    users.kitotavrik =
+      if pkgs.stdenv.isLinux then
+        import ./kitotavrik/linux.nix
+      else if pkgs.stdenv.isDarwin then
+        import ./kitotavrik/darwin.nix
+      else
+        null;
   };
 }
