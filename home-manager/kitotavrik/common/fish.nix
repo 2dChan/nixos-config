@@ -1,5 +1,6 @@
 {
   pkgs,
+	lib,
   ...
 }:
 
@@ -14,10 +15,8 @@
 
       shellAliases = {
         nd = "nix develop -c fish";
-        nr = "sudo nixos-rebuild";
-        # TODO: Refactor.
-        dr = "darwin-rebuild --flake $HOME/Documents/nixos-config/";
-        bat = "cat /sys/class/power_supply/macsmc-battery/capacity";
+        nr = if pkgs.stdenv.isLinux then "sudo nixos-rebuild" else if pkgs.stdenv.isDarwin then "darwin-rebuild --flake $HOME/Documents/nixos-config/" else null;
+        bat = lib.mkIf pkgs.stdenv.isLinux "cat /sys/class/power_supply/macsmc-battery/capacity";
       };
 
       plugins = [
